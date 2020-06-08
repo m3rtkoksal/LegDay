@@ -19,8 +19,15 @@ class WorkoutVC: UIViewController {
         // Do any additional setup after loading the view.
         typeLabel.isHidden = true
         timerLabel.isHidden = true
+        
+        INPreferences.requestSiriAuthorization { (status) in
+            if status == INSiriAuthorizationStatus.authorized {
+                print("SiriKit Auth")
+            } else {
+                print("SiriKit UnAuth")
+            }
+        }
     }
-
 
 }
 
